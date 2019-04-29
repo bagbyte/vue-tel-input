@@ -293,8 +293,6 @@ export default {
         // Remove the first '0' if this is a '0' prefix number
         // Ex: 0432421999
         phone = this.phone.slice(1);
-      } else if (this.mode === 'normal') {
-        return formatNumber(phone, this.activeCountry && this.activeCountry.iso2, 'International');
       }
       if (this.disabledFormatting) {
         return this.phone;
