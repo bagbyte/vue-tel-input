@@ -307,9 +307,10 @@ export default {
       // If it is a valid number, returns the formatted value
       // Otherwise returns what it is
       const response = {
-        number: this.state ? this.formattedResult : this.phone,
+        number: this.phone,
         isValid: this.state,
         country: this.activeCountry,
+        formatted: this.formattedResult,
       }
       // If formatting to the input is disabled, try to return the formatted value to its parent
       if (this.disabledFormatting) {
@@ -322,11 +323,6 @@ export default {
   },
   watch: {
     state(value) {
-      if (value && this.mode !== 'prefix') {
-        // If mode is 'prefix', keep the number as user typed,
-        // Otherwise format it
-        this.phone = this.formattedResult;
-      }
       this.$emit('onValidate', this.response);
     },
     value() {
